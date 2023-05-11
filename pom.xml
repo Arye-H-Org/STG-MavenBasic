@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>test.arye</groupId>
+    <version>1.0-SNAPSHOT</version>
+    <artifactId>basic-case</artifactId>
+    <description>
+        This project contains 2 dependencies,
+        under both of which there is the same dependency (jackson-databind) -
+        in a different versions, an old one with vulnerabilities and a new one without.
+        According to Maven's order of priorities,
+        in this case it will take only the new version at runtime.
+        This can be proven using the command: "mvn dependency:tree -Dverbose"
+    </description>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>berlin.yuna</groupId>
+            <artifactId>config-metadata-generator</artifactId>
+            <version>0.6.75</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.hubspot</groupId>
+            <artifactId>HorizonCore</artifactId>
+            <version>0.2.0</version>
+        </dependency>
+
+    </dependencies>
+	
+
+</project>
